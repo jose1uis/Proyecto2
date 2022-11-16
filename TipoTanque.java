@@ -2,7 +2,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 
 public class TipoTanque{
-    // arreglo 2x2 para guardar todo tipo de tanques
+   
     public static TipoTanque tanques[][] = new TipoTanque[2][2];
 
     
@@ -66,9 +66,6 @@ public class TipoTanque{
         }
     }
 
-
-    // Infomacion para mostrar tablero
-    // retorna la cantidad de tanque instanciados
     public static int tanquesEnLista(){
         int numEntrega = 0;
         for(int x=0;x<2;x++){
@@ -81,12 +78,12 @@ public class TipoTanque{
         return numEntrega;
     }
 
-    // retorna el nombre y la  salud de un tanque en un solo String
+    
      public String nombreTanque(){
         return this.nombre + "-" + this.salud;
     }
 
-    // tablero del juego
+    
     public static String tableroTankWars(){
         int numeroTanque = tanquesEnLista();
         String tablero = "";
@@ -115,8 +112,6 @@ public class TipoTanque{
     }
 
 
-    // metodo para dispara a un tanque especifico
-    // obvia aquellos tanque muertos y las posiciones donde no hay tanques 
     public static void dispararBala(int posx, int posy){
         if(posx >=2 || posy >=2){
             System.out.println("\nLa posicion digitada no existe\n");
@@ -129,7 +124,6 @@ public class TipoTanque{
         }
     }
 
-    // metodo que vuelve 0 la vida de un tanque de forma aleatoria
     public static void bombaAtomica(){
         int posx;
         int posy;
@@ -146,10 +140,6 @@ public class TipoTanque{
     } 
 
 
-    /*
-     * hace que el tanque con menos vida se le duplique esta
-     * omite las posiciones sin tanque y los tanque muertos
-     */
     public static void tanqueMutante(){
         int menor[] = new int[tanquesEnLista()];
         int num = 0;
@@ -162,8 +152,7 @@ public class TipoTanque{
                 }
             }
         }
-
-        // Se busca en esa lista cual es el menor entre la lista de datos de sangre
+        
         int menor2 = menor[0];
         for(int i=1;i < num;i++){
             if(menor[i]<menor2){
@@ -171,7 +160,7 @@ public class TipoTanque{
             }
         }
 
-        // Se define cual es el tanque que tiene esa sangre, cuando se encuenta se duplica su sangre y sale del ciclo
+
         boolean validacion = false;
         for(int x=0;x<2;x++){
             if(validacion){
@@ -192,7 +181,6 @@ public class TipoTanque{
     }
 
     
-    // guarda los datos de la sangre en un archivo de tipo txt en un momento determinado
     public static void guardarSangreTXT(){
         try {
             PrintWriter archivo = new PrintWriter(new FileWriter("sangre.txt"));
@@ -210,7 +198,6 @@ public class TipoTanque{
         }
     }
 
-    // retorna un String con la sangre en un momento determinado 
     public static String leerSangre(){
         String salida = "";
         for(int x = 0;x<2;x++){
@@ -224,7 +211,6 @@ public class TipoTanque{
         return salida;
     }
 
-    // retorna un numero con la cantidad de tanque muertos
     public static int muertos(){
         int muertos = 0;
         for(int x = 0;x<2;x++){
