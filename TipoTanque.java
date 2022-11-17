@@ -25,7 +25,7 @@ public class TipoTanque{
         return this.nombre;
     }
 
-    // setters 
+  
     public void setSalud(int salud) {
         this.salud = salud;
     }
@@ -118,7 +118,7 @@ public class TipoTanque{
         }else if(tanques[posx][posy]==null){
             System.out.println("En esta posicion no exite un tanque");
         }else if(tanques[posx][posy].getSalud()>0){
-            tanques[posx][posy].setSalud(tanques[posx][posy].getSalud()-5); // Aqui se ejecuta el ataque
+            tanques[posx][posy].setSalud(tanques[posx][posy].getSalud()-5);
         }else if(tanques[posx][posy].getSalud()<=0){
             System.out.println("El tanque ya esta muero");
         }
@@ -143,7 +143,7 @@ public class TipoTanque{
     public static void tanqueMutante(){
         int menor[] = new int[tanquesEnLista()];
         int num = 0;
-        // primero se crea una lista con los datos de la salud de los tanque vivos
+
         for(int x=0;x<2;x++){
             for(int y=0;y<2;y++){
                 if(!(tanques[x][y]==null) && tanques[x][y].getSalud()>0){
@@ -179,7 +179,6 @@ public class TipoTanque{
     public static String mensajeAbuela(){
         return "Me gusta la aguapanela";
     }
-
     
     public static void guardarSangreTXT(){
         try {
