@@ -10,7 +10,8 @@ public class TankWars {
                         "6. Mostrar cantidad de sangre\n"+
                         "7. Guardar datos de sangre en archivo\n"+
                         "8. Mostrar Tablero\n"+
-                        "9. Mostrar el menu\n";
+                        "9. Mostrar el menu\n"+
+                        "0. acabar este juego\n";
 
         TipoTanque.generarTanques();
         System.out.println(TipoTanque.tableroTankWars());
@@ -20,7 +21,9 @@ public class TankWars {
         int cantDisparos = 0;
         while(true){
             
-            if(opcion == 1){
+            if (opcion == 0) {
+                break;
+            }else if(opcion == 1){
                 System.out.println("\nDigita la Fila de la posición del tanque\n");
                 int fila = entrada.nextInt();
                 System.out.println("\nDigita la columna de la posición del tanque\n");
